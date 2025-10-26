@@ -84,7 +84,7 @@ const formatShowDate = (dateStr: string) => {
                 <span>{nextShow.city}{nextShow.state && `, ${nextShow.state}`}</span>
               </div>
             </div>
-            {nextShow.ticketLink && (
+            {'ticketLink' in nextShow && nextShow.ticketLink && (
               <div class="md:flex-shrink-0">
                 <span class="inline-block btn-primary text-sm px-6 py-2 group-hover:bg-accent-dark transition-colors">
                   Get Tickets
