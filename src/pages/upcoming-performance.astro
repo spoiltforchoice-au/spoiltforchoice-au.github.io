@@ -9,6 +9,10 @@ import showsData from '../data/shows.json';
 const upcomingShows = showsData.upcoming.sort((a, b) => 
   new Date(a.date).getTime() - new Date(b.date).getTime()
 );
+
+const pastShows = showsData.past.sort((a, b) => 
+  new Date(b.date).getTime() - new Date(a.date).getTime()
+).slice(0, 6); // Show last 6 past shows
 ---
 
 <Layout 
@@ -47,6 +51,41 @@ const upcomingShows = showsData.upcoming.sort((a, b) =>
         <a href="/contact-us" class="btn-primary">
           Contact for Booking
         </a>
+      </div>
+    </section>
+  )}
+
+  <!-- Past Shows -->
+  {pastShows.length > 0 && (
+    <section class="section-padding bg-neutral-100">
+      <div class="container-custom">
+        <h2 class="text-3xl font-bold mb-8 text-center">Past Shows</h2>
+        <div class="space-y-3 max-w-4xl mx-auto">
+          {pastShows.map((show) => (
+            <div class="bg-white rounded-lg shadow-sm p-4 opacity-75">
+              <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                <div class="flex-grow">
+                  <time 
+                    datetime={show.date}
+                    class="text-neutral-500 font-semibold text-sm block mb-1"
+                  >
+                    {new Date(show.date + 'T00:00:00').toLocaleDateString('en-AU', {
+                      weekday: 'short',
+                      year: 'numeric',
+                      month: 'short',
+                      day: 'numeric'
+                    })}
+                  </time>
+                  <div class="text-neutral-900">
+                    <span class="font-bold">{show.venue}</span>
+                    <span class="mx-2 text-neutral-400">•</span>
+                    <span>{show.city}{show.state && `, ${show.state}`}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   )}

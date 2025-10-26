@@ -61,10 +61,12 @@ import SocialLinks from '../components/SocialLinks.astro';
           <h2 class="text-3xl font-bold mb-6">Send a Message</h2>
           
           <form 
-            action="https://formspree.io/f/YOUR_FORM_ID"
+            action="https://api.web3forms.com/submit"
             method="POST"
             class="space-y-4"
           >
+            <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+            <input type="hidden" name="redirect" value="https://spoiltforchoiceband.com.au/contact-us?success=true">
             <!-- Name -->
             <div>
               <label for="name" class="block text-sm font-semibold mb-2">
@@ -108,7 +110,6 @@ import SocialLinks from '../components/SocialLinks.astro';
               >
                 <option value="">Select a subject</option>
                 <option value="booking">Booking Enquiry</option>
-                <option value="press">Press Request</option>
                 <option value="general">General Question</option>
                 <option value="other">Other</option>
               </select>
