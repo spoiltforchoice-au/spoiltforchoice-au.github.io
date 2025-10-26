@@ -5,6 +5,21 @@ It aims to ensure the project remains lightweight, consistent, and maintainable 
 
 ---
 
+## 0. Important Agent Guidelines
+
+### Git Push Policy ⚠️
+
+**DO NOT automatically push to origin after every commit.**
+
+- Commit changes locally with descriptive commit messages
+- Only push when explicitly requested by the user (e.g., "push this" or "deploy")
+- Allow the user to review commits before deployment
+- Exception: If user says "commit and push" or "deploy this change", then push is allowed
+
+This prevents accidental deployments and gives the user control over when changes go live.
+
+---
+
 ## 1. Project Overview
 
 A **static, content-driven band website** built with **Astro** and **Tailwind CSS**, hosted on **GitHub Pages** with a custom domain.
