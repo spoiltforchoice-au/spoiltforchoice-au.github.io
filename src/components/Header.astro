@@ -6,7 +6,9 @@ const navItems = [
   { name: 'Contact Us', href: '/contact-us' }
 ];
 
+// Normalize paths for comparison (remove trailing slash except for root)
 const currentPath = Astro.url.pathname;
+const normalizedCurrentPath = currentPath === '/' ? '/' : currentPath.replace(/\/$/, '');
 ---
 
 <header class="bg-primary text-white sticky top-0 z-40 shadow-lg">
@@ -31,9 +33,9 @@ const currentPath = Astro.url.pathname;
             <a 
               href={item.href}
               class={`text-sm font-semibold transition-colors hover:text-accent ${
-                currentPath === item.href ? 'text-accent border-b-2 border-accent' : ''
+                normalizedCurrentPath === item.href ? 'text-accent border-b-2 border-accent' : ''
               }`}
-              aria-current={currentPath === item.href ? 'page' : undefined}
+              aria-current={normalizedCurrentPath === item.href ? 'page' : undefined}
             >
               {item.name}
             </a>
@@ -66,9 +68,9 @@ const currentPath = Astro.url.pathname;
             <a 
               href={item.href}
               class={`block py-2 px-4 rounded transition-colors hover:bg-primary-light ${
-                currentPath === item.href ? 'bg-accent text-white' : ''
+                normalizedCurrentPath === item.href ? 'bg-accent text-white' : ''
               }`}
-              aria-current={currentPath === item.href ? 'page' : undefined}
+              aria-current={normalizedCurrentPath === item.href ? 'page' : undefined}
             >
               {item.name}
             </a>
