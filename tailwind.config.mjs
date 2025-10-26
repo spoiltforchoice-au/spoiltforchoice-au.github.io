@@ -29,6 +29,7 @@ export default {
       },
       fontFamily: {
         sans: [
+          'Inter',
           'system-ui',
           '-apple-system',
           'BlinkMacSystemFont',
@@ -39,7 +40,7 @@ export default {
           'sans-serif'
         ],
         display: [
-          '"Space Grotesk"',
+          'Oswald',
           'system-ui',
           '-apple-system',
           'BlinkMacSystemFont',
