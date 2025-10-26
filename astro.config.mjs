@@ -3,8 +3,8 @@ import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://nanciee.github.io',
-  base: '/sfc_band_site',
+  site: 'https://spoiltforchoiceband.com.au',
+  base: '/',
   integrations: [tailwind()],
   output: 'static',
   build: {

@@ -1,0 +1,78 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout 
+  title="About Us - Spoilt For Choice" 
+  description="Learn about Spoilt For Choice, an Australian rock band bringing raw energy and authentic sound to stages across the country."
+>
+  <Header slot="header" />
+  
+  <!-- Page Header -->
+  <section class="section-padding bg-neutral-900 text-white">
+    <div class="container-custom text-center">
+      <h1 class="mb-4">About Us</h1>
+      <p class="text-xl max-w-2xl mx-auto">
+        Raw energy. Authentic sound. Australian rock.
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class="section-padding">
+    <div class="container-custom">
+      <div class="max-w-3xl mx-auto space-y-8">
+        <!-- Band Story -->
+        <div>
+          <h2 class="text-3xl font-bold mb-6">Our Story</h2>
+          <div class="prose prose-lg max-w-none">
+            <p class="text-lg text-neutral-700 leading-relaxed mb-4">
+              Spoilt For Choice is an Australian rock band that's been shaking stages across the country with their authentic sound and raw energy. 
+              Formed in Melbourne, we blend classic rock influences with a modern edge, creating music that resonates with audiences 
+              from all walks of life.
+            </p>
+            <p class="text-lg text-neutral-700 leading-relaxed mb-4">
+              Our live performances are where we truly come alive, delivering high-energy shows that leave audiences wanting more. 
+              Whether we're playing intimate venues or large festivals, we bring the same passion and intensity to every performance.
+            </p>
+            <p class="text-lg text-neutral-700 leading-relaxed">
+              We believe in the power of authentic music — no gimmicks, no pretence, just honest rock and roll that speaks to the heart 
+              and gets your blood pumping.
+            </p>
+          </div>
+        </div>
+
+        <!-- Band Photo -->
+        <div class="rounded-lg overflow-hidden shadow-xl">
+          <img 
+            src="/images/sfc_band_long.jpg" 
+            alt="Spoilt For Choice band performing live on stage"
+            class="w-full h-auto"
+            loading="eager"
+          />
+        </div>
+
+        <!-- Call to Action -->
+        <div class="text-center pt-8">
+          <h3 class="text-2xl font-bold mb-4">See Us Live</h3>
+          <p class="text-lg text-neutral-700 mb-6">
+            Check out our upcoming shows and experience the energy for yourself.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="/upcoming-performance" class="btn-primary">
+              View Shows
+            </a>
+            <a href="/contact-us" class="btn-secondary">
+              Get In Touch
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>
+

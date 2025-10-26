@@ -7,20 +7,25 @@ It aims to ensure the project remains lightweight, consistent, and maintainable 
 
 ## 1. Project Overview
 
-A **static, content-driven band website** built with **Astro** and **Tailwind CSS**, hosted on **GitHub Pages**.
+A **static, content-driven band website** built with **Astro** and **Tailwind CSS**, hosted on **GitHub Pages** with a custom domain.
+
+**Band Name:** Spoilt For Choice (never abbreviated)
+**Domain:** spoiltforchoiceband.com.au
+**Repository:** May use abbreviated name (sfc_band_site) but NEVER use "SFC" or "sfc" in any user-facing content, code comments, or UI.
+
 No backend is required; data will come from Markdown or JSON files.
 
 **Core features:**
 
-* Home page with hero, intro, and upcoming show highlights
-* Shows page (upcoming & past performances)
-* Gallery page with responsive grid + lightbox
-* Contact page with links and form (Formspree)
+* Home page: Minimalist design with centered title, social media links, three page navigation buttons, and band photos
+* Upcoming Performance page: List of upcoming shows
+* About Us page: Band information and history
+* Contact Us page: Contact form and booking information
 * SEO-optimized metadata and fast load performance
 
-**Hosting:** GitHub Pages via GitHub Actions.
+**Hosting:** GitHub Pages via GitHub Actions with custom domain (spoiltforchoiceband.com.au).
 **Target audience:** Fans, venues, and media.
-**Primary goals:** Speed, accessibility, simplicity.
+**Primary goals:** Speed, accessibility, simplicity, minimalist aesthetic.
 
 ---
 
@@ -66,6 +71,12 @@ npm run preview
 * Optimized images (prefer WebP)
 * Australian English spelling and tone
 * Avoid marketing fluff — focus on clarity and authenticity
+* **Home page aesthetic:** Minimalist and centered layout
+  - Band name "Spoilt For Choice" prominently displayed at top-center
+  - Social media links directly below title
+  - Three navigation buttons below social links (Upcoming Performance, About Us, Contact Us)
+  - Band photos displayed below navigation
+  - Clean, uncluttered design with lots of whitespace
 
 ---
 
@@ -82,19 +93,19 @@ project-root/
 │
 ├── src/
 │   ├── components/
-│   │   ├── Header.astro
 │   │   ├── Footer.astro
 │   │   ├── ShowCard.astro
 │   │   └── SocialLinks.astro
 │   │
 │   ├── layouts/
 │   │   └── Layout.astro
+│   │   └── MinimalLayout.astro  (for home page)
 │   │
 │   ├── pages/
-│   │   ├── index.astro
-│   │   ├── shows.astro
-│   │   ├── gallery.astro
-│   │   └── contact.astro
+│   │   ├── index.astro  (minimalist home page)
+│   │   ├── upcoming-performance.astro
+│   │   ├── about-us.astro
+│   │   └── contact-us.astro
 │   │
 │   ├── data/
 │   │   └── shows.json
@@ -266,5 +277,8 @@ jobs:
 * Keep writing concise and authentic.
 * Avoid unnecessary animations or JavaScript.
 * Focus on accessibility, performance, and clarity.
+* **IMPORTANT:** Always use the full band name "Spoilt For Choice" - never abbreviate to "SFC" or "sfc" in any user-facing content.
+* The domain is deployed at root (base: '/') on spoiltforchoiceband.com.au
+* GitHub organisation will use github.io with custom domain DNS configuration.
 
 *End of AGENT.md*

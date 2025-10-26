@@ -1,6 +1,6 @@
-# SFC Band Website
+# Spoilt For Choice - Band Website
 
-A static, content-driven band website built with Astro and Tailwind CSS, hosted on GitHub Pages.
+A static, content-driven band website built with Astro and Tailwind CSS, hosted on GitHub Pages with custom domain (spoiltforchoiceband.com.au).
 
 ## 🚀 Quick Start
 
@@ -39,12 +39,13 @@ npm run preview
 │   │   ├── ShowCard.astro
 │   │   └── SocialLinks.astro
 │   ├── layouts/
-│   │   └── Layout.astro
+│   │   ├── Layout.astro
+│   │   └── MinimalLayout.astro
 │   ├── pages/
 │   │   ├── index.astro
-│   │   ├── shows.astro
-│   │   ├── gallery.astro
-│   │   └── contact.astro
+│   │   ├── upcoming-performance.astro
+│   │   ├── about-us.astro
+│   │   └── contact-us.astro
 │   ├── data/
 │   │   └── shows.json
 │   └── styles/
@@ -59,8 +60,10 @@ npm run preview
 - 🎨 Styled with Tailwind CSS
 - 📱 Fully responsive (mobile-first design)
 - ♿️ Accessible (WCAG AA compliant)
-- 🎭 SEO optimized with meta tags
+- 🎭 SEO optimised with meta tags
 - 🚀 Deployed via GitHub Actions to GitHub Pages
+- 🌐 Custom domain: spoiltforchoiceband.com.au
+- 🎯 Minimalist home page design
 
 ## 📝 Content Management
 
@@ -91,11 +94,16 @@ Place images in `public/images/gallery/` and reference them in `src/pages/galler
 
 The site automatically deploys to GitHub Pages when changes are pushed to the `main` branch.
 
-To configure for your repository:
+**Configuration:**
+- Site is deployed at root (`base: '/'`)
+- Custom domain: spoiltforchoiceband.com.au
+- DNS should point to GitHub Pages (configured in GitHub repository settings)
 
-1. Update `astro.config.mjs` with your GitHub username and repo name
-2. Enable GitHub Pages in repository settings
-3. Set source to "GitHub Actions"
+**Setup:**
+1. Enable GitHub Pages in repository settings
+2. Set source to "GitHub Actions"
+3. Add custom domain in repository settings
+4. Configure DNS A records to point to GitHub Pages IPs
 
 ## 📄 License
 

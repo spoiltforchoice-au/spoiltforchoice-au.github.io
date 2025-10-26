@@ -1,9 +1,9 @@
 ---
 const navItems = [
   { name: 'Home', href: '/' },
-  { name: 'Shows', href: '/shows' },
-  { name: 'Gallery', href: '/gallery' },
-  { name: 'Contact', href: '/contact' }
+  { name: 'Upcoming Performance', href: '/upcoming-performance' },
+  { name: 'About Us', href: '/about-us' },
+  { name: 'Contact Us', href: '/contact-us' }
 ];
 
 const currentPath = Astro.url.pathname;
@@ -16,12 +16,12 @@ const currentPath = Astro.url.pathname;
       <a href="/" class="flex items-center space-x-3 hover:opacity-80 transition-opacity">
         <img 
           src="/images/sfc_band_logo.png" 
-          alt="SFC Band Logo" 
+          alt="Spoilt For Choice Logo" 
           class="h-10 w-auto"
           width="40"
           height="40"
         />
-        <span class="font-display text-xl font-bold">SFC</span>
+        <span class="font-display text-xl font-bold">Spoilt For Choice</span>
       </a>
 
       <!-- Desktop Navigation -->

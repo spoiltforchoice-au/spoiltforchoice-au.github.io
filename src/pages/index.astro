@@ -1,104 +1,81 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import ShowCard from '../components/ShowCard.astro';
-import showsData from '../data/shows.json';
-
-// Get the next 2 upcoming shows for highlights
-const upcomingShows = showsData.upcoming.slice(0, 2);
+import MinimalLayout from '../layouts/MinimalLayout.astro';
+import SocialLinks from '../components/SocialLinks.astro';
 ---
 
-<Layout 
-  title="SFC - Australian Rock Band" 
-  description="SFC is an Australian band bringing raw energy and authentic sound to stages across the country. Check out our upcoming shows and latest music."
+<MinimalLayout 
+  title="Spoilt For Choice - Australian Rock Band" 
+  description="Spoilt For Choice is an Australian band bringing raw energy and authentic sound to stages across the country."
 >
-  <Header slot="header" />
-  
-  <!-- Hero Section -->
-  <section class="relative h-[70vh] min-h-[500px] flex items-center justify-center overflow-hidden">
-    <img 
-      src="/images/sfc_band_long.jpg" 
-      alt="SFC band performing live on stage"
-      class="absolute inset-0 w-full h-full object-cover"
-    />
-    <div class="absolute inset-0 bg-black/50"></div>
-    
-    <div class="relative z-10 text-center text-white container-custom px-4">
-      <h1 class="font-display text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
-        SFC
-      </h1>
-      <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
-        Raw energy. Authentic sound. Australian rock.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/shows" class="btn-primary">
-          View Shows
-        </a>
-        <a href="/contact" class="btn-secondary">
-          Get In Touch
-        </a>
-      </div>
+  <div class="min-h-screen flex flex-col items-center justify-center px-4 py-12">
+    <!-- Band Name Title -->
+    <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-center mb-8 text-neutral-900">
+      Spoilt For Choice
+    </h1>
+
+    <!-- Social Media Links -->
+    <div class="mb-12">
+      <SocialLinks />
     </div>
-  </section>
 
-  <!-- About Section -->
-  <section class="section-padding bg-white">
-    <div class="container-custom">
-      <div class="max-w-3xl mx-auto text-center">
-        <h2 class="mb-6">About SFC</h2>
-        <p class="text-lg text-neutral-700 leading-relaxed mb-4">
-          SFC is an Australian rock band that's been shaking stages across the country with their authentic sound and raw energy. 
-          Formed in Melbourne, we blend classic rock influences with a modern edge, creating music that resonates with audiences 
-          from all walks of life.
-        </p>
-        <p class="text-lg text-neutral-700 leading-relaxed">
-          Our live performances are where we truly come alive, delivering high-energy shows that leave audiences wanting more. 
-          Whether we're playing intimate venues or large festivals, we bring the same passion and intensity to every performance.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Upcoming Shows Highlights -->
-  {upcomingShows.length > 0 && (
-    <section class="section-padding bg-neutral-100">
-      <div class="container-custom">
-        <div class="text-center mb-12">
-          <h2 class="mb-4">Upcoming Shows</h2>
-          <p class="text-lg text-neutral-700">
-            Catch us live at one of our upcoming performances
-          </p>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          {upcomingShows.map((show) => (
-            <ShowCard {...show} />
-          ))}
-        </div>
-
-        <div class="text-center mt-8">
-          <a href="/shows" class="btn-primary">
-            View All Shows
+    <!-- Navigation Links -->
+    <nav aria-label="Main navigation" class="mb-16">
+      <ul class="flex flex-col sm:flex-row gap-6 items-center justify-center">
+        <li>
+          <a 
+            href="/upcoming-performance" 
+            class="btn-primary text-lg px-8 py-4"
+          >
+            Upcoming Performance
           </a>
+        </li>
+        <li>
+          <a 
+            href="/about-us" 
+            class="btn-primary text-lg px-8 py-4"
+          >
+            About Us
+          </a>
+        </li>
+        <li>
+          <a 
+            href="/contact-us" 
+            class="btn-primary text-lg px-8 py-4"
+          >
+            Contact Us
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Band Photos -->
+    <div class="max-w-6xl w-full">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="aspect-square overflow-hidden rounded-lg shadow-lg">
+          <img 
+            src="/images/sfc_band_square.jpg" 
+            alt="Spoilt For Choice band photo"
+            class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+            loading="eager"
+          />
+        </div>
+        <div class="aspect-square overflow-hidden rounded-lg shadow-lg">
+          <img 
+            src="/images/sfc_band_long.jpg" 
+            alt="Spoilt For Choice performing live"
+            class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+            loading="eager"
+          />
+        </div>
+        <div class="aspect-square overflow-hidden rounded-lg shadow-lg">
+          <img 
+            src="/images/sfc_band_logo.png" 
+            alt="Spoilt For Choice logo"
+            class="w-full h-full object-contain bg-neutral-900 p-8 hover:scale-105 transition-transform duration-300"
+            loading="eager"
+          />
         </div>
       </div>
-    </section>
-  )}
-
-  <!-- Call to Action -->
-  <section class="section-padding bg-accent text-white">
-    <div class="container-custom text-center">
-      <h2 class="mb-4">Stay Connected</h2>
-      <p class="text-xl mb-8 max-w-2xl mx-auto">
-        Follow us on social media for the latest updates, behind-the-scenes content, and new music releases.
-      </p>
-      <a href="/contact" class="btn bg-white text-accent hover:bg-neutral-100">
-        Contact Us
-      </a>
     </div>
-  </section>
-
-  <Footer slot="footer" />
-</Layout>
-
+  </div>
+</MinimalLayout>
