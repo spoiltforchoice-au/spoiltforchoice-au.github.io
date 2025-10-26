@@ -60,12 +60,10 @@ import Footer from '../components/Footer.astro';
           <h2 class="text-3xl font-bold mb-6">Send a Message</h2>
           
           <form 
-            action="https://api.web3forms.com/submit"
-            method="POST"
+            id="contact-form"
             class="space-y-4"
           >
             <input type="hidden" name="access_key" value="52fa59df-1b6a-46d5-8f9a-f44c6b4c043d">
-            <input type="hidden" name="redirect" value="https://spoiltforchoiceband.com.au/contact-us?success=true">
             <!-- Name -->
             <div>
               <label for="name" class="block text-sm font-semibold mb-2">
@@ -132,10 +130,14 @@ import Footer from '../components/Footer.astro';
             <!-- Submit Button -->
             <button 
               type="submit"
+              id="submit-btn"
               class="btn-primary w-full"
             >
               Send Message
             </button>
+
+            <!-- Status Message -->
+            <p id="form-status" class="text-sm text-center hidden"></p>
 
             <p class="text-sm text-neutral-600 text-center">
               We'll get back to you as soon as possible, usually within 24-48 hours.
@@ -148,26 +150,81 @@ import Footer from '../components/Footer.astro';
 
   <Footer slot="footer" />
 
-  <!-- Client-side script to show success message -->
+  <!-- Form submission handler -->
   <script>
-    // Check for success parameter in URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const success = urlParams.get('success');
+    const form = document.getElementById('contact-form') as HTMLFormElement;
+    const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+    const successMessage = document.getElementById('success-message');
+    const formStatus = document.getElementById('form-status');
     
-    if (success === 'true') {
-      // Show success message
-      const successMessage = document.getElementById('success-message');
-      if (successMessage) {
-        successMessage.classList.remove('hidden');
-      }
-      
-      // Scroll to top to ensure user sees the message
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      
-      // Optional: Clean up URL (remove ?success=true)
-      // This makes the URL cleaner after showing the message
-      const cleanUrl = window.location.pathname;
-      window.history.replaceState({}, document.title, cleanUrl);
+    if (form) {
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        
+        // Show loading state
+        if (submitBtn) {
+          submitBtn.textContent = 'Sending...';
+          submitBtn.disabled = true;
+        }
+        
+        // Prepare form data
+        const formData = new FormData(form);
+        
+        try {
+          // Submit to Web3Forms
+          const response = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            body: formData
+          });
+          
+          const data = await response.json();
+          
+          if (data.success) {
+            // Show success message
+            if (successMessage) {
+              successMessage.classList.remove('hidden');
+            }
+            
+            // Reset form
+            form.reset();
+            
+            // Scroll to top to show success message
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            // Reset button
+            if (submitBtn) {
+              submitBtn.textContent = 'Send Message';
+              submitBtn.disabled = false;
+            }
+          } else {
+            // Show error message
+            if (formStatus) {
+              formStatus.textContent = 'Oops! Something went wrong. Please try again.';
+              formStatus.classList.remove('hidden', 'text-green-600');
+              formStatus.classList.add('text-red-600');
+            }
+            
+            // Reset button
+            if (submitBtn) {
+              submitBtn.textContent = 'Send Message';
+              submitBtn.disabled = false;
+            }
+          }
+        } catch (error) {
+          // Show error message
+          if (formStatus) {
+            formStatus.textContent = 'Network error. Please check your connection and try again.';
+            formStatus.classList.remove('hidden', 'text-green-600');
+            formStatus.classList.add('text-red-600');
+          }
+          
+          // Reset button
+          if (submitBtn) {
+            submitBtn.textContent = 'Send Message';
+            submitBtn.disabled = false;
+          }
+        }
+      });
     }
   </script>
 </Layout>
