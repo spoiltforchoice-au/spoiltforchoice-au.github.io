@@ -28,16 +28,16 @@ const socialLinks = [
 ];
 ---
 
-<div class="flex items-center space-x-4">
+<div class="flex items-center justify-center gap-4">
   {socialLinks.map(link => (
     <a 
       href={link.url}
       target="_blank"
       rel="noopener noreferrer"
-      class="text-neutral-400 hover:text-white transition-colors"
+      class="text-neutral-700 hover:text-accent transition-all duration-200 hover:scale-110"
       aria-label={`Visit our ${link.name} page`}
     >
-      <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+      <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
         <path d={link.icon} />
       </svg>
     </a>
