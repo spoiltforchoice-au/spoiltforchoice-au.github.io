@@ -5,14 +5,29 @@
       "venue": "The Corner Hotel",
       "city": "Melbourne",
       "state": "VIC",
-      "ticketLink": "https://example.com/tickets"
+      "time": "8:00 PM",
+      "ticketLink": "https://example.com/tickets",
+      "mapsLink": "https://www.google.com/maps/search/?api=1&query=The+Corner+Hotel+Melbourne",
+      "description": "High-energy night of rock classics and modern hits."
     },
     {
       "date": "2025-12-22",
       "venue": "The Factory Theatre",
       "city": "Sydney",
       "state": "NSW",
-      "ticketLink": "https://example.com/tickets"
+      "time": "9:00 PM",
+      "ticketLink": "https://example.com/tickets",
+      "mapsLink": "https://www.google.com/maps/search/?api=1&query=The+Factory+Theatre+Sydney",
+      "description": "Join us for an unforgettable evening of your favourite covers."
+    },
+    {
+      "date": "2026-01-10",
+      "venue": "Harmonie German Club",
+      "city": "Narrabundah",
+      "state": "ACT",
+      "time": "7:30 PM",
+      "mapsLink": "https://www.google.com/maps/search/?api=1&query=Harmonie+German+Club+Narrabundah+ACT",
+      "description": "Free entry! Relaxed Friday night with great music and good vibes. Cash bar available."
     }
   ],
   "past": [
@@ -20,8 +35,8 @@
       "date": "2025-10-10",
       "venue": "The Tivoli",
       "city": "Brisbane",
-      "state": "QLD"
+      "state": "QLD",
+      "mapsLink": "https://www.google.com/maps/search/?api=1&query=The+Tivoli+Brisbane"
     }
   ]
 }
-

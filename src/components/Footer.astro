@@ -1,6 +1,4 @@
 ---
-import SocialLinks from './SocialLinks.astro';
-
 const currentYear = new Date().getFullYear();
 ---
 
@@ -42,24 +40,18 @@ const currentYear = new Date().getFullYear();
         </ul>
       </div>
 
-      <!-- Contact & Social -->
+      <!-- Contact -->
       <div>
         <h3 class="font-display text-lg font-bold mb-4">Connect</h3>
         <div class="space-y-4">
           <div>
             <p class="text-neutral-400 text-sm mb-2">Email us:</p>
             <a 
-              href="mailto:spoiltforchoice.au@gmail.com" 
+              href="mailto:spoiltforchoice.au@gmail.com"
               class="text-white hover:text-accent transition-colors text-sm"
             >
               spoiltforchoice.au@gmail.com
             </a>
-          </div>
-          <div>
-            <p class="text-neutral-400 text-sm mb-3">Follow us:</p>
-            <div class="[&_a]:text-neutral-300 [&_a:hover]:text-accent">
-              <SocialLinks />
-            </div>
           </div>
         </div>
       </div>
