@@ -1,0 +1,27 @@
+{
+  "upcoming": [
+    {
+      "date": "2025-12-15",
+      "venue": "The Corner Hotel",
+      "city": "Melbourne",
+      "state": "VIC",
+      "ticketLink": "https://example.com/tickets"
+    },
+    {
+      "date": "2025-12-22",
+      "venue": "The Factory Theatre",
+      "city": "Sydney",
+      "state": "NSW",
+      "ticketLink": "https://example.com/tickets"
+    }
+  ],
+  "past": [
+    {
+      "date": "2025-10-10",
+      "venue": "The Tivoli",
+      "city": "Brisbane",
+      "state": "QLD"
+    }
+  ]
+}
+
