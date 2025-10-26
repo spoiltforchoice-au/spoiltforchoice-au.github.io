@@ -7,8 +7,7 @@
       "state": "VIC",
       "time": "8:00 PM",
       "ticketLink": "https://example.com/tickets",
-      "mapsLink": "https://www.google.com/maps/search/?api=1&query=The+Corner+Hotel+Melbourne",
-      "description": "High-energy night of rock classics and modern hits."
+      "mapsLink": "https://www.google.com/maps/search/?api=1&query=The+Corner+Hotel+Melbourne"
     },
     {
       "date": "2025-12-22",
@@ -17,8 +16,7 @@
       "state": "NSW",
       "time": "9:00 PM",
       "ticketLink": "https://example.com/tickets",
-      "mapsLink": "https://www.google.com/maps/search/?api=1&query=The+Factory+Theatre+Sydney",
-      "description": "Join us for an unforgettable evening of your favourite covers."
+      "mapsLink": "https://www.google.com/maps/search/?api=1&query=The+Factory+Theatre+Sydney"
     },
     {
       "date": "2026-01-10",
@@ -26,8 +24,7 @@
       "city": "Narrabundah",
       "state": "ACT",
       "time": "7:30 PM",
-      "mapsLink": "https://www.google.com/maps/search/?api=1&query=Harmonie+German+Club+Narrabundah+ACT",
-      "description": "Free entry! Relaxed Friday night with great music and good vibes. Cash bar available."
+      "mapsLink": "https://www.google.com/maps/search/?api=1&query=Harmonie+German+Club+Narrabundah+ACT"
     }
   ],
   "past": [
