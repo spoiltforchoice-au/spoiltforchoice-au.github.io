@@ -40,7 +40,7 @@ export default {
           'sans-serif'
         ],
         display: [
-          'Oswald',
+          '"Barlow Condensed"',
           'system-ui',
           '-apple-system',
           'BlinkMacSystemFont',
