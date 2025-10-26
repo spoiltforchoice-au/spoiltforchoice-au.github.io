@@ -1,0 +1,74 @@
+---
+import SocialLinks from './SocialLinks.astro';
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-primary text-white mt-auto">
+  <div class="container-custom py-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Brand -->
+      <div>
+        <h3 class="font-display text-xl font-bold mb-4">SFC</h3>
+        <p class="text-neutral-400 text-sm">
+          Australian band bringing raw energy and authentic sound to stages across the country.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h3 class="font-display text-lg font-bold mb-4">Quick Links</h3>
+        <ul class="space-y-2">
+          <li>
+            <a href="/" class="text-neutral-400 hover:text-white transition-colors text-sm">
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="/shows" class="text-neutral-400 hover:text-white transition-colors text-sm">
+              Shows
+            </a>
+          </li>
+          <li>
+            <a href="/gallery" class="text-neutral-400 hover:text-white transition-colors text-sm">
+              Gallery
+            </a>
+          </li>
+          <li>
+            <a href="/contact" class="text-neutral-400 hover:text-white transition-colors text-sm">
+              Contact
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Contact & Social -->
+      <div>
+        <h3 class="font-display text-lg font-bold mb-4">Connect</h3>
+        <div class="space-y-4">
+          <div>
+            <p class="text-neutral-400 text-sm mb-2">Booking enquiries:</p>
+            <a 
+              href="mailto:booking@sfcband.com" 
+              class="text-white hover:text-accent transition-colors text-sm"
+            >
+              booking@sfcband.com
+            </a>
+          </div>
+          <div>
+            <p class="text-neutral-400 text-sm mb-3">Follow us:</p>
+            <SocialLinks />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="border-t border-neutral-700 mt-8 pt-8 text-center">
+      <p class="text-neutral-400 text-sm">
+        © {currentYear} SFC. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>
+
