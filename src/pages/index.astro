@@ -1,6 +1,13 @@
 ---
 import MinimalLayout from '../layouts/MinimalLayout.astro';
 import SocialLinks from '../components/SocialLinks.astro';
+import ShowCard from '../components/ShowCard.astro';
+import showsData from '../data/shows.json';
+
+// Get upcoming shows
+const upcomingShows = showsData.upcoming.sort((a, b) => 
+  new Date(a.date).getTime() - new Date(b.date).getTime()
+).slice(0, 3); // Show max 3 upcoming shows
 ---
 
 <MinimalLayout 
@@ -19,34 +26,53 @@ import SocialLinks from '../components/SocialLinks.astro';
     </div>
 
     <!-- Navigation Links -->
-    <nav aria-label="Main navigation" class="mb-16 w-full max-w-md">
-      <ul class="flex flex-col sm:flex-row gap-4 items-stretch justify-center">
-        <li class="w-full sm:w-auto">
+    <nav aria-label="Main navigation" class="mb-16 w-full max-w-3xl">
+      <ul class="flex flex-col md:flex-row gap-4 items-stretch justify-center">
+        <li class="w-full md:w-auto">
           <a 
             href="/upcoming-performance" 
-            class="btn-primary text-lg px-8 py-4 block text-center w-full"
+            class="btn-primary text-lg px-8 py-4 block text-center w-full whitespace-nowrap"
           >
             Upcoming Performance
           </a>
         </li>
-        <li class="w-full sm:w-auto">
+        <li class="w-full md:w-auto">
           <a 
             href="/about-us" 
-            class="btn-primary text-lg px-8 py-4 block text-center w-full"
+            class="btn-primary text-lg px-8 py-4 block text-center w-full whitespace-nowrap"
           >
             About Us
           </a>
         </li>
-        <li class="w-full sm:w-auto">
+        <li class="w-full md:w-auto">
           <a 
             href="/contact-us" 
-            class="btn-primary text-lg px-8 py-4 block text-center w-full"
+            class="btn-primary text-lg px-8 py-4 block text-center w-full whitespace-nowrap"
           >
             Contact Us
           </a>
         </li>
       </ul>
     </nav>
+
+    <!-- Upcoming Shows Section -->
+    {upcomingShows.length > 0 && (
+      <section class="w-full max-w-4xl mb-16">
+        <h2 class="text-3xl md:text-4xl font-display font-bold text-center mb-8">
+          Upcoming Shows
+        </h2>
+        <div class="space-y-4">
+          {upcomingShows.map((show) => (
+            <ShowCard {...show} />
+          ))}
+        </div>
+        <div class="text-center mt-6">
+          <a href="/upcoming-performance" class="text-accent hover:text-accent-dark font-semibold transition-colors">
+            View all shows →
+          </a>
+        </div>
+      </section>
+    )}
 
     <!-- Band Photos -->
     <div class="max-w-6xl w-full">
