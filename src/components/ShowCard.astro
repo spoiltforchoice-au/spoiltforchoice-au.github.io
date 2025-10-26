@@ -37,7 +37,7 @@ const formattedDate = dateObj.toLocaleDateString('en-AU', {
       <h3 class="font-display text-xl font-bold text-neutral-900 mb-1">
         {venue}
       </h3>
-      <p class="text-neutral-600 mb-2">
+      <div class="flex items-center flex-wrap gap-x-2 text-neutral-600 mb-2">
         {mapsLink ? (
           <a 
             href={mapsLink}
@@ -45,16 +45,21 @@ const formattedDate = dateObj.toLocaleDateString('en-AU', {
             rel="noopener noreferrer"
             class="hover:text-accent transition-colors inline-flex items-center gap-1"
           >
-            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <svg class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
             </svg>
-            {city}{state && `, ${state}`}
+            <span>{city}{state && `, ${state}`}</span>
           </a>
         ) : (
           <span>{city}{state && `, ${state}`}</span>
         )}
-        {time && <span class="ml-2 text-neutral-500">• {time}</span>}
-      </p>
+        {time && (
+          <>
+            <span class="text-neutral-500">•</span>
+            <span class="text-neutral-500">{time}</span>
+          </>
+        )}
+      </div>
     </div>
 
     <!-- Ticket Link or Free Entry -->
