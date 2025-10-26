@@ -6,15 +6,10 @@ const navItems = [
   { name: 'Contact Us', href: '/contact-us' }
 ];
 
-// Normalize paths for comparison (remove trailing slash except for root)
+// Normalize paths for comparison
+// Remove trailing slash except for root, and ignore query parameters
 const currentPath = Astro.url.pathname;
 const normalizedCurrentPath = currentPath === '/' ? '/' : currentPath.replace(/\/$/, '');
-
-// Debug logging for development
-if (import.meta.env.DEV) {
-  console.log('Current path:', currentPath);
-  console.log('Normalized path:', normalizedCurrentPath);
-}
 ---
 
 <header class="bg-primary text-white sticky top-0 z-40 shadow-lg">
