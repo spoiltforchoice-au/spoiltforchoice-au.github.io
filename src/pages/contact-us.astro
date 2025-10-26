@@ -2,10 +2,6 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-
-// Check if form was successfully submitted
-const url = new URL(Astro.request.url);
-const success = url.searchParams.get('success');
 ---
 
 <Layout 
@@ -28,17 +24,16 @@ const success = url.searchParams.get('success');
   <section class="section-padding">
     <div class="container-custom max-w-5xl">
       
-      {success && (
-        <div class="mb-8 bg-green-50 border border-green-200 rounded-lg p-6 text-center">
-          <svg class="w-12 h-12 text-green-600 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-          </svg>
-          <h3 class="text-xl font-bold text-green-800 mb-2">Message Sent Successfully!</h3>
-          <p class="text-green-700">
-            Thanks for getting in touch. We'll get back to you as soon as possible, usually within 24-48 hours.
-          </p>
-        </div>
-      )}
+      <!-- Success Message (hidden by default, shown by JS) -->
+      <div id="success-message" class="hidden mb-8 bg-green-50 border border-green-200 rounded-lg p-6 text-center">
+        <svg class="w-12 h-12 text-green-600 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+        </svg>
+        <h3 class="text-xl font-bold text-green-800 mb-2">Message Sent Successfully!</h3>
+        <p class="text-green-700">
+          Thanks for getting in touch. We'll get back to you as soon as possible, usually within 24-48 hours.
+        </p>
+      </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
         
@@ -152,5 +147,28 @@ const success = url.searchParams.get('success');
   </section>
 
   <Footer slot="footer" />
+
+  <!-- Client-side script to show success message -->
+  <script>
+    // Check for success parameter in URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const success = urlParams.get('success');
+    
+    if (success === 'true') {
+      // Show success message
+      const successMessage = document.getElementById('success-message');
+      if (successMessage) {
+        successMessage.classList.remove('hidden');
+      }
+      
+      // Scroll to top to ensure user sees the message
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      
+      // Optional: Clean up URL (remove ?success=true)
+      // This makes the URL cleaner after showing the message
+      const cleanUrl = window.location.pathname;
+      window.history.replaceState({}, document.title, cleanUrl);
+    }
+  </script>
 </Layout>
 
