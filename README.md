@@ -1,6 +1,6 @@
 # Spoilt For Choice - Band Website
 
-A static, content-driven band website built with Astro and Tailwind CSS, hosted on GitHub Pages with custom domain (spoiltforchoiceband.com.au).
+A static, content-driven website for Spoilt For Choice, a Canberra-based Australian cover band. Built with Astro and Tailwind CSS, hosted on GitHub Pages with custom domain (spoiltforchoiceband.com.au).
 
 ## 🚀 Quick Start
 

@@ -10,6 +10,7 @@ It aims to ensure the project remains lightweight, consistent, and maintainable 
 A **static, content-driven band website** built with **Astro** and **Tailwind CSS**, hosted on **GitHub Pages** with a custom domain.
 
 **Band Name:** Spoilt For Choice (never abbreviated)
+**Band Type:** Canberra-based Australian cover band
 **Domain:** spoiltforchoiceband.com.au
 **Repository:** May use abbreviated name (sfc_band_site) but NEVER use "SFC" or "sfc" in any user-facing content, code comments, or UI.
 
@@ -17,11 +18,13 @@ No backend is required; data will come from Markdown or JSON files.
 
 **Core features:**
 
-* Home page: Minimalist design with centered title, social media links, three page navigation buttons, and band photos
-* Upcoming Performance page: List of upcoming shows
-* About Us page: Band information and history
+* Home page: Minimalist design with centered title, social media links, three page navigation buttons, and clickable band photos (desktop lightbox)
+* Upcoming Performance page: List of upcoming gigs
+* About Us page: Band information and story as a Canberra cover band
 * Contact Us page: Contact form and booking information
-* SEO-optimized metadata and fast load performance
+* SEO-optimised metadata mentioning Canberra location and cover band focus
+* Interactive button design with shadow and hover effects
+* Photo lightbox for desktop (disabled on mobile)
 
 **Hosting:** GitHub Pages via GitHub Actions with custom domain (spoiltforchoiceband.com.au).
 **Target audience:** Fans, venues, and media.

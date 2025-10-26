@@ -4,8 +4,8 @@ import SocialLinks from '../components/SocialLinks.astro';
 ---
 
 <MinimalLayout 
-  title="Spoilt For Choice - Australian Rock Band" 
-  description="Spoilt For Choice is an Australian band bringing raw energy and authentic sound to stages across the country."
+  title="Spoilt For Choice - Canberra Cover Band" 
+  description="Spoilt For Choice is a Canberra-based Australian cover band bringing high-energy performances and crowd favourites to venues across the country."
 >
   <div class="min-h-screen flex flex-col items-center justify-center px-4 py-12">
     <!-- Band Name Title -->
@@ -19,28 +19,28 @@ import SocialLinks from '../components/SocialLinks.astro';
     </div>
 
     <!-- Navigation Links -->
-    <nav aria-label="Main navigation" class="mb-16">
-      <ul class="flex flex-col sm:flex-row gap-6 items-center justify-center">
-        <li>
+    <nav aria-label="Main navigation" class="mb-16 w-full max-w-md">
+      <ul class="flex flex-col sm:flex-row gap-4 items-stretch justify-center">
+        <li class="w-full sm:w-auto">
           <a 
             href="/upcoming-performance" 
-            class="btn-primary text-lg px-8 py-4"
+            class="btn-primary text-lg px-8 py-4 block text-center w-full"
           >
             Upcoming Performance
           </a>
         </li>
-        <li>
+        <li class="w-full sm:w-auto">
           <a 
             href="/about-us" 
-            class="btn-primary text-lg px-8 py-4"
+            class="btn-primary text-lg px-8 py-4 block text-center w-full"
           >
             About Us
           </a>
         </li>
-        <li>
+        <li class="w-full sm:w-auto">
           <a 
             href="/contact-us" 
-            class="btn-primary text-lg px-8 py-4"
+            class="btn-primary text-lg px-8 py-4 block text-center w-full"
           >
             Contact Us
           </a>
@@ -50,32 +50,164 @@ import SocialLinks from '../components/SocialLinks.astro';
 
     <!-- Band Photos -->
     <div class="max-w-6xl w-full">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="aspect-square overflow-hidden rounded-lg shadow-lg">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Photo 1 -->
+        <button 
+          class="aspect-square overflow-hidden rounded-lg shadow-lg cursor-pointer lightbox-trigger hidden md:block"
+          data-image="/images/band-photo-1.jpg"
+          data-alt="Spoilt For Choice performing live"
+          aria-label="View larger image of Spoilt For Choice performing"
+        >
           <img 
-            src="/images/sfc_band_square.jpg" 
-            alt="Spoilt For Choice band photo"
-            class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-            loading="eager"
-          />
-        </div>
-        <div class="aspect-square overflow-hidden rounded-lg shadow-lg">
-          <img 
-            src="/images/sfc_band_long.jpg" 
+            src="/images/band-photo-1.jpg" 
             alt="Spoilt For Choice performing live"
             class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
             loading="eager"
           />
-        </div>
-        <div class="aspect-square overflow-hidden rounded-lg shadow-lg">
+        </button>
+        <div class="aspect-square overflow-hidden rounded-lg shadow-lg md:hidden">
           <img 
-            src="/images/sfc_band_logo.png" 
-            alt="Spoilt For Choice logo"
-            class="w-full h-full object-contain bg-neutral-900 p-8 hover:scale-105 transition-transform duration-300"
+            src="/images/band-photo-1.jpg" 
+            alt="Spoilt For Choice performing live"
+            class="w-full h-full object-cover"
+            loading="eager"
+          />
+        </div>
+
+        <!-- Photo 2 -->
+        <button 
+          class="aspect-square overflow-hidden rounded-lg shadow-lg cursor-pointer lightbox-trigger hidden md:block"
+          data-image="/images/band-photo-2.jpg"
+          data-alt="Spoilt For Choice band photo"
+          aria-label="View larger image of Spoilt For Choice"
+        >
+          <img 
+            src="/images/band-photo-2.jpg" 
+            alt="Spoilt For Choice band photo"
+            class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+            loading="eager"
+          />
+        </button>
+        <div class="aspect-square overflow-hidden rounded-lg shadow-lg md:hidden">
+          <img 
+            src="/images/band-photo-2.jpg" 
+            alt="Spoilt For Choice band photo"
+            class="w-full h-full object-cover"
+            loading="eager"
+          />
+        </div>
+
+        <!-- Photo 3 -->
+        <button 
+          class="aspect-square overflow-hidden rounded-lg shadow-lg cursor-pointer lightbox-trigger hidden md:block"
+          data-image="/images/band-photo-3.jpg"
+          data-alt="Spoilt For Choice on stage"
+          aria-label="View larger image of Spoilt For Choice on stage"
+        >
+          <img 
+            src="/images/band-photo-3.jpg" 
+            alt="Spoilt For Choice on stage"
+            class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+            loading="eager"
+          />
+        </button>
+        <div class="aspect-square overflow-hidden rounded-lg shadow-lg md:hidden">
+          <img 
+            src="/images/band-photo-3.jpg" 
+            alt="Spoilt For Choice on stage"
+            class="w-full h-full object-cover"
+            loading="eager"
+          />
+        </div>
+
+        <!-- Photo 4 -->
+        <button 
+          class="aspect-square overflow-hidden rounded-lg shadow-lg cursor-pointer lightbox-trigger hidden md:block"
+          data-image="/images/band-photo-4.jpg"
+          data-alt="Spoilt For Choice live performance"
+          aria-label="View larger image of Spoilt For Choice live"
+        >
+          <img 
+            src="/images/band-photo-4.jpg" 
+            alt="Spoilt For Choice live performance"
+            class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+            loading="eager"
+          />
+        </button>
+        <div class="aspect-square overflow-hidden rounded-lg shadow-lg md:hidden">
+          <img 
+            src="/images/band-photo-4.jpg" 
+            alt="Spoilt For Choice live performance"
+            class="w-full h-full object-cover"
             loading="eager"
           />
         </div>
       </div>
     </div>
   </div>
+
+  <!-- Lightbox Overlay (Desktop Only) -->
+  <div id="lightbox" class="lightbox-overlay" aria-hidden="true">
+    <span class="lightbox-close" aria-label="Close lightbox">&times;</span>
+    <img id="lightbox-img" src="" alt="" class="lightbox-image" />
+  </div>
+
+  <script>
+    // Lightbox functionality - desktop only
+    if (window.innerWidth >= 768) {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement;
+      const lightboxClose = document.querySelector('.lightbox-close');
+      const triggers = document.querySelectorAll('.lightbox-trigger');
+
+      triggers.forEach(trigger => {
+        trigger.addEventListener('click', () => {
+          const imageSrc = trigger.getAttribute('data-image');
+          const imageAlt = trigger.getAttribute('data-alt');
+          
+          if (lightboxImg && lightbox && imageSrc) {
+            lightboxImg.src = imageSrc;
+            lightboxImg.alt = imageAlt || '';
+            lightbox.classList.add('active');
+            lightbox.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+          }
+        });
+      });
+
+      // Close lightbox function
+      const closeLightbox = () => {
+        if (lightbox) {
+          lightbox.classList.remove('active');
+          lightbox.setAttribute('aria-hidden', 'true');
+          document.body.style.overflow = '';
+        }
+      };
+
+      // Close lightbox on overlay click
+      if (lightbox) {
+        lightbox.addEventListener('click', (e) => {
+          // Only close if clicking the overlay itself, not the image
+          if (e.target === lightbox) {
+            closeLightbox();
+          }
+        });
+      }
+
+      // Close lightbox on close button click
+      if (lightboxClose) {
+        lightboxClose.addEventListener('click', (e) => {
+          e.stopPropagation();
+          closeLightbox();
+        });
+      }
+
+      // Close lightbox on Escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox?.classList.contains('active')) {
+          closeLightbox();
+        }
+      });
+    }
+  </script>
 </MinimalLayout>
