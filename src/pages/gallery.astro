@@ -1,0 +1,104 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+// Gallery images - in a real app, this could come from a CMS or data file
+const galleryImages = [
+  {
+    src: '/images/sfc_band_square.jpg',
+    alt: 'SFC band promotional photo',
+    title: 'Band Promo Shot'
+  },
+  {
+    src: '/images/sfc_band_long.jpg',
+    alt: 'SFC performing live on stage',
+    title: 'Live Performance'
+  },
+  {
+    src: '/images/sfc_band_logo.png',
+    alt: 'SFC band logo',
+    title: 'Band Logo'
+  }
+  // Add more images as they become available
+];
+---
+
+<Layout 
+  title="Gallery - SFC" 
+  description="Check out photos from SFC's live performances, studio sessions, and behind-the-scenes moments."
+>
+  <Header slot="header" />
+  
+  <!-- Page Header -->
+  <section class="section-padding bg-neutral-900 text-white">
+    <div class="container-custom text-center">
+      <h1 class="mb-4">Gallery</h1>
+      <p class="text-xl max-w-2xl mx-auto">
+        Explore photos from our live shows, studio sessions, and everything in between.
+      </p>
+    </div>
+  </section>
+
+  <!-- Gallery Grid -->
+  <section class="section-padding">
+    <div class="container-custom">
+      {galleryImages.length > 0 ? (
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {galleryImages.map((image, index) => (
+            <article class="group relative overflow-hidden rounded-lg shadow-lg bg-neutral-900 aspect-square">
+              <img 
+                src={image.src}
+                alt={image.alt}
+                loading={index < 6 ? 'eager' : 'lazy'}
+                class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+              />
+              <div class="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-colors duration-300 flex items-end">
+                <div class="p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                  <h3 class="font-display font-bold text-lg">{image.title}</h3>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      ) : (
+        <div class="text-center py-12">
+          <p class="text-xl text-neutral-700">
+            Gallery coming soon. Check back for photos from our performances and behind-the-scenes moments.
+          </p>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="section-padding bg-neutral-100">
+    <div class="container-custom text-center">
+      <h2 class="mb-4">Follow Us</h2>
+      <p class="text-xl text-neutral-700 mb-8 max-w-2xl mx-auto">
+        For more photos and behind-the-scenes content, follow us on Instagram and Facebook.
+      </p>
+      <div class="flex justify-center gap-4">
+        <a 
+          href="https://instagram.com/sfcband"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-primary"
+        >
+          Instagram
+        </a>
+        <a 
+          href="https://facebook.com/sfcband"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-secondary"
+        >
+          Facebook
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>
+

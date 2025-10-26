@@ -1,0 +1,86 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ShowCard from '../components/ShowCard.astro';
+import showsData from '../data/shows.json';
+
+// Sort shows
+const upcomingShows = showsData.upcoming.sort((a, b) => 
+  new Date(a.date).getTime() - new Date(b.date).getTime()
+);
+
+const pastShows = showsData.past.sort((a, b) => 
+  new Date(b.date).getTime() - new Date(a.date).getTime()
+);
+---
+
+<Layout 
+  title="Shows - SFC" 
+  description="Check out SFC's upcoming tour dates and past performances. Get tickets to see us live at a venue near you."
+>
+  <Header slot="header" />
+  
+  <!-- Page Header -->
+  <section class="section-padding bg-neutral-900 text-white">
+    <div class="container-custom text-center">
+      <h1 class="mb-4">Live Shows</h1>
+      <p class="text-xl max-w-2xl mx-auto">
+        Experience the raw energy of SFC live. Check out our upcoming tour dates and grab your tickets.
+      </p>
+    </div>
+  </section>
+
+  <!-- Upcoming Shows -->
+  {upcomingShows.length > 0 ? (
+    <section class="section-padding">
+      <div class="container-custom">
+        <h2 class="text-3xl font-bold mb-8 text-center">Upcoming Shows</h2>
+        <div class="space-y-4 max-w-4xl mx-auto">
+          {upcomingShows.map((show) => (
+            <ShowCard {...show} />
+          ))}
+        </div>
+      </div>
+    </section>
+  ) : (
+    <section class="section-padding">
+      <div class="container-custom text-center">
+        <h2 class="text-3xl font-bold mb-4">No Upcoming Shows</h2>
+        <p class="text-lg text-neutral-700">
+          We're currently working on new material. Check back soon for tour dates, or follow us on social media for the latest updates.
+        </p>
+      </div>
+    </section>
+  )}
+
+  <!-- Past Shows -->
+  {pastShows.length > 0 && (
+    <section class="section-padding bg-neutral-100">
+      <div class="container-custom">
+        <h2 class="text-3xl font-bold mb-8 text-center">Past Shows</h2>
+        <div class="space-y-4 max-w-4xl mx-auto">
+          {pastShows.map((show) => (
+            <ShowCard {...show} isPast={true} />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Booking CTA -->
+  <section class="section-padding bg-accent text-white">
+    <div class="container-custom text-center">
+      <h2 class="mb-4">Book Us for Your Venue</h2>
+      <p class="text-xl mb-8 max-w-2xl mx-auto">
+        Interested in having SFC perform at your venue or event? Get in touch with our booking team.
+      </p>
+      <a href="/contact" class="btn bg-white text-accent hover:bg-neutral-100">
+        Contact for Booking
+      </a>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>
+
