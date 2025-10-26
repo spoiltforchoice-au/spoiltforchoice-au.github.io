@@ -1,13 +1,24 @@
 ---
 import MinimalLayout from '../layouts/MinimalLayout.astro';
 import SocialLinks from '../components/SocialLinks.astro';
-import ShowCard from '../components/ShowCard.astro';
 import showsData from '../data/shows.json';
 
-// Get upcoming shows
+// Get next upcoming show
 const upcomingShows = showsData.upcoming.sort((a, b) => 
   new Date(a.date).getTime() - new Date(b.date).getTime()
-).slice(0, 3); // Show max 3 upcoming shows
+);
+const nextShow = upcomingShows.length > 0 ? upcomingShows[0] : null;
+
+// Format date if show exists
+const formatShowDate = (dateStr: string) => {
+  const date = new Date(dateStr + 'T00:00:00');
+  return date.toLocaleDateString('en-AU', { 
+    weekday: 'short', 
+    day: 'numeric', 
+    month: 'short',
+    year: 'numeric'
+  });
+};
 ---
 
 <MinimalLayout 
@@ -55,23 +66,34 @@ const upcomingShows = showsData.upcoming.sort((a, b) =>
       </ul>
     </nav>
 
-    <!-- Upcoming Shows Section -->
-    {upcomingShows.length > 0 && (
-      <section class="w-full max-w-4xl mb-16">
-        <h2 class="text-3xl md:text-4xl font-display font-bold text-center mb-8">
-          Upcoming Shows
-        </h2>
-        <div class="space-y-4">
-          {upcomingShows.map((show) => (
-            <ShowCard {...show} />
-          ))}
-        </div>
-        <div class="text-center mt-6">
-          <a href="/upcoming-performance" class="text-accent hover:text-accent-dark font-semibold transition-colors">
-            View all shows →
-          </a>
-        </div>
-      </section>
+    <!-- Next Show Announcement -->
+    {nextShow && (
+      <div class="w-full max-w-4xl mb-16">
+        <a 
+          href="/upcoming-performance"
+          class="block bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow p-6 border-l-4 border-accent group"
+        >
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3 text-center md:text-left">
+            <div class="flex-1">
+              <span class="text-sm font-semibold text-accent uppercase tracking-wide">Next Show</span>
+              <div class="mt-1 text-lg md:text-xl text-neutral-900">
+                <span class="font-bold">{formatShowDate(nextShow.date)}</span>
+                <span class="mx-2 text-neutral-400">•</span>
+                <span class="font-semibold">{nextShow.venue}</span>
+                <span class="mx-2 text-neutral-400">•</span>
+                <span>{nextShow.city}{nextShow.state && `, ${nextShow.state}`}</span>
+              </div>
+            </div>
+            {nextShow.ticketLink && (
+              <div class="md:flex-shrink-0">
+                <span class="inline-block btn-primary text-sm px-6 py-2 group-hover:bg-accent-dark transition-colors">
+                  Get Tickets
+                </span>
+              </div>
+            )}
+          </div>
+        </a>
+      </div>
     )}
 
     <!-- Band Photos -->
