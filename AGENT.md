@@ -18,6 +18,17 @@ It aims to ensure the project remains lightweight, consistent, and maintainable 
 
 This prevents accidental deployments and gives the user control over when changes go live.
 
+### Design Experimentation Policy
+
+**DO NOT automatically commit during design experimentation (fonts, colors, layouts).**
+
+- When trying out design options (e.g., testing different fonts), make changes without committing
+- Let the user see and approve the changes first
+- Only commit once the user explicitly approves the design choice
+- Use `git reset --soft HEAD~1` if a commit was made prematurely during experimentation
+
+This allows the user to iterate on design choices without cluttering git history.
+
 ---
 
 ## 1. Project Overview

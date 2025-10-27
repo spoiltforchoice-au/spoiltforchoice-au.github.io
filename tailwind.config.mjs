@@ -29,7 +29,7 @@ export default {
       },
       fontFamily: {
         sans: [
-          'Inter',
+          'Lato',
           'system-ui',
           '-apple-system',
           'BlinkMacSystemFont',
@@ -40,7 +40,7 @@ export default {
           'sans-serif'
         ],
         display: [
-          '"Barlow Condensed"',
+          'Righteous',
           'system-ui',
           '-apple-system',
           'BlinkMacSystemFont',
