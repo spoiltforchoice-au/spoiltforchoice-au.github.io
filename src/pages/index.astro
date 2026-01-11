@@ -1,13 +1,16 @@
 ---
 import MinimalLayout from '../layouts/MinimalLayout.astro';
 import SocialLinks from '../components/SocialLinks.astro';
+import type { ShowsData, Show } from '../types/shows';
 import showsData from '../data/shows.json';
 
+const typedShowsData = showsData as ShowsData;
+
 // Get next upcoming show
-const upcomingShows = showsData.upcoming.sort((a, b) => 
+const upcomingShows: Show[] = typedShowsData.upcoming.sort((a, b) => 
   new Date(a.date).getTime() - new Date(b.date).getTime()
 );
-const nextShow = upcomingShows.length > 0 ? upcomingShows[0] : null;
+const nextShow: Show | null = upcomingShows.length > 0 ? upcomingShows[0] : null;
 
 // Format date if show exists
 const formatShowDate = (dateStr: string) => {

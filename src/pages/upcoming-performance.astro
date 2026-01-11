@@ -3,14 +3,17 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ShowCard from '../components/ShowCard.astro';
+import type { ShowsData, Show } from '../types/shows';
 import showsData from '../data/shows.json';
 
+const typedShowsData = showsData as ShowsData;
+
 // Sort shows
-const upcomingShows = showsData.upcoming.sort((a, b) => 
+const upcomingShows: Show[] = typedShowsData.upcoming.sort((a, b) => 
   new Date(a.date).getTime() - new Date(b.date).getTime()
 );
 
-const pastShows = showsData.past.sort((a, b) => 
+const pastShows: Show[] = typedShowsData.past.sort((a, b) => 
   new Date(b.date).getTime() - new Date(a.date).getTime()
 ).slice(0, 6); // Show last 6 past shows
 ---
@@ -48,9 +51,6 @@ const pastShows = showsData.past.sort((a, b) =>
         <p class="text-lg text-neutral-700 mb-8">
           Not performances planned at the moment...
           <br/>Got an event that needs live music? Contact us using the button below!
-        </p>
-        <p class="text-lg text-neutral-700">
-          
         </p>
         <a href="/contact-us" class="btn-primary">
           Contact for Booking
@@ -99,7 +99,7 @@ const pastShows = showsData.past.sort((a, b) =>
     <div class="container-custom text-center">
       <h2 class="mb-4">Book Us for Your Event</h2>
       <p class="text-xl mb-8 max-w-2xl mx-auto">
-        Interested in having Spoilt For Choice perform at your event? Get in touch with our booking team.
+        Interested in having Spoilt For Choice perform at your event? Get in touch with us!
       </p>
       <a href="/contact-us" class="btn bg-white text-accent hover:bg-neutral-100">
         Contact for Booking
