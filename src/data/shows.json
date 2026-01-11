@@ -1,13 +1,6 @@
 {
   "upcoming": [
-    {
-      "date": "2025-12-19",
-      "venue": "The Pot Belly",
-      "city": "Belconnen",
-      "state": "ACT",
-      "mapsLink": "https://maps.app.goo.gl/2kdMwpFPmWwBP4kd9",
-      "time": "9:00 PM"
-    }
+    
   ],
   "past": [
     {
@@ -51,6 +44,13 @@
       "city": "Nicholls",
       "state": "ACT",
       "mapsLink": "https://maps.app.goo.gl/ED4J23FMNmkkNQGs7"
+    },
+    {
+      "date": "2025-12-19",
+      "venue": "The Pot Belly",
+      "city": "Belconnen",
+      "state": "ACT",
+      "mapsLink": "https://maps.app.goo.gl/2kdMwpFPmWwBP4kd9"
     }
   ]
 }
