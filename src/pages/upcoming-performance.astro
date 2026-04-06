@@ -8,14 +8,24 @@ import showsData from '../data/shows.json';
 
 const typedShowsData = showsData as ShowsData;
 
-// Sort shows
-const upcomingShows: Show[] = typedShowsData.upcoming.sort((a, b) => 
-  new Date(a.date).getTime() - new Date(b.date).getTime()
+// Parse DD/MM/YYYY to a Date object
+const parseShowDate = (d: string): Date => {
+  const [day, month, year] = d.split('/');
+  return new Date(`${year}-${month}-${day}T00:00:00`);
+};
+
+// Classify shows based on today's date in AET (Australia/Sydney) at build time
+const todayAET = new Date(
+  new Date().toLocaleDateString('en-CA', { timeZone: 'Australia/Sydney' }) + 'T00:00:00'
 );
 
-const pastShows: Show[] = typedShowsData.past.sort((a, b) => 
-  new Date(b.date).getTime() - new Date(a.date).getTime()
-).slice(0, 6); // Show last 6 past shows
+const upcomingShows: Show[] = typedShowsData.shows
+  .filter(s => parseShowDate(s.date) >= todayAET)
+  .sort((a, b) => parseShowDate(a.date).getTime() - parseShowDate(b.date).getTime());
+
+const pastShows: Show[] = typedShowsData.shows
+  .filter(s => parseShowDate(s.date) < todayAET)
+  .sort((a, b) => parseShowDate(b.date).getTime() - parseShowDate(a.date).getTime());
 ---
 
 <Layout 
@@ -68,11 +78,11 @@ const pastShows: Show[] = typedShowsData.past.sort((a, b) =>
             <div class="bg-white rounded-lg shadow-sm p-4 opacity-75">
               <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
                 <div class="flex-grow">
-                  <time 
-                    datetime={show.date}
+                  <time
+                    datetime={parseShowDate(show.date).toISOString().split('T')[0]}
                     class="text-neutral-500 font-semibold text-sm block mb-1"
                   >
-                    {new Date(show.date + 'T00:00:00').toLocaleDateString('en-AU', {
+                    {parseShowDate(show.date).toLocaleDateString('en-AU', {
                       weekday: 'short',
                       year: 'numeric',
                       month: 'short',

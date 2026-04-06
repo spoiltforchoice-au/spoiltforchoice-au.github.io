@@ -12,8 +12,9 @@ export interface Props {
 
 const { date, venue, city, state, time, ticketLink, mapsLink, isPast = false } = Astro.props;
 
-// Format date for display
-const dateObj = new Date(date + 'T00:00:00');
+// Parse DD/MM/YYYY and format for display
+const [day, month, year] = date.split('/');
+const dateObj = new Date(`${year}-${month}-${day}T00:00:00`);
 const formattedDate = dateObj.toLocaleDateString('en-AU', {
   weekday: 'short',
   year: 'numeric',
@@ -26,8 +27,8 @@ const formattedDate = dateObj.toLocaleDateString('en-AU', {
   <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
     <div class="flex-grow">
       <!-- Date -->
-      <time 
-        datetime={date}
+      <time
+        datetime={`${year}-${month}-${day}`}
         class="text-accent font-bold text-lg block mb-2"
       >
         {formattedDate}

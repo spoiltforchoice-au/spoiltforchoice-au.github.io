@@ -8,6 +8,5 @@ export interface Show {
 }
 
 export interface ShowsData {
-  upcoming: Show[];
-  past: Show[];
+  shows: Show[];
 }
