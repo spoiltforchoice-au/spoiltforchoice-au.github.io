@@ -1,12 +1,5 @@
 {
   "upcoming": [
-    {
-      "date": "2026-03-18",
-      "venue":"George Harcourt Inn",
-      "city": "Nicholls",
-      "state": "ACT",
-      "mapsLink": "https://maps.app.goo.gl/ED4J23FMNmkkNQGs7"
-    }
   ],
   "past": [
     {
@@ -57,6 +50,13 @@
       "city": "Belconnen",
       "state": "ACT",
       "mapsLink": "https://maps.app.goo.gl/2kdMwpFPmWwBP4kd9"
+    },
+    {
+      "date": "2026-03-18",
+      "venue":"George Harcourt Inn",
+      "city": "Nicholls",
+      "state": "ACT",
+      "mapsLink": "https://maps.app.goo.gl/ED4J23FMNmkkNQGs7"
     }
   ]
 }
